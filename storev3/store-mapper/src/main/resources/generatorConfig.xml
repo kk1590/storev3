@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <properties resource="properties/db.properties"/>
+    <!-- !!!! Driver Class Path !!!! -->
+    <classPathEntry
+            location="E:\WorkSpace\Maven\repository\mysql\mysql-connector-java\5.1.32\mysql-connector-java-5.1.32.jar"/>
+
+    <context id="context" targetRuntime="MyBatis3">
+        <!--增加序列化接口-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <!--增加toString 方法-->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <!--不注明作者备注-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="false"/>
+        </commentGenerator>
+
+        <!-- !!!! Database Configurations !!!! -->
+        <jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" userId="${jdbc.username}"
+                        password="${jdbc.password}"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- !!!! Model Configurations !!!! -->
+        <javaModelGenerator targetPackage="online.zhangke.store.pojo" targetProject="src\main\java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- !!!! Mapper XML Configurations !!!! -->
+        <sqlMapGenerator targetPackage="online.zhangke.store.mapper" targetProject="src\main\resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- !!!! Mapper Interface Configurations !!!! -->
+        <javaClientGenerator targetPackage="online.zhangke.store.mapper" targetProject="src\main\java"
+                             type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_address" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_areas" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_brand" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_cities" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_content" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_content_category" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_freight_template" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_goods" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_goods_desc" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_item" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_item_cat" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_order" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_order_item" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_pay_log" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_provinces" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_seckill_goods" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_seckill_order" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_seller" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_specification" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_specification_option" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_type_template" enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+        <!-- !!!! Table Configurations !!!! -->
+        <table tableName="tb_user" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+               enableUpdateByExample="true"/>
+
+    </context>
+</generatorConfiguration>
