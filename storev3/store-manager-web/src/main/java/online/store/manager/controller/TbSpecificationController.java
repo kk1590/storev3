@@ -34,7 +34,7 @@ public class TbSpecificationController {
      * @return 单条数据
      */
     @RequestMapping("selectOne")
-    public TbSpecification selectOne(Long id) {
+    public Specification selectOne(Long id) {
         return this.tbSpecificationService.selectByPrimaryKey(id);
     }
     
@@ -84,13 +84,13 @@ public class TbSpecificationController {
      /**
      * 通过pojo修改数据
      *
-     * @param tbSpecification 实例对象
+     * @param specification 实例对象
      * @return result结果对象
      */
     @RequestMapping("update")
-    public Result update(@RequestBody TbSpecification tbSpecification){
+    public Result update(@RequestBody Specification specification){
         try {
-        tbSpecificationService.update(tbSpecification);
+        tbSpecificationService.update(specification);
         return new Result(true,"更新成功");
         }catch (Exception e){
             return new Result(false,"更新失败");

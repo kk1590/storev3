@@ -21,7 +21,7 @@ public interface TbSpecificationService {
      * @param id 主键
      * @return 实例对象
      */
-    TbSpecification selectByPrimaryKey(Long id);
+    Specification selectByPrimaryKey(Long id);
 
     /**
      * 查询多条数据
@@ -52,10 +52,10 @@ public interface TbSpecificationService {
     /**
      * 修改数据
      *
-     * @param tbSpecification 实例对象
+     * @param specification 实例对象
      * @return 实例对象
      */
-    TbSpecification update(TbSpecification tbSpecification);
+    TbSpecification update(Specification specification);
 
     /**
      * 通过主键删除数据

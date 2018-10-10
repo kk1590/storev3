@@ -9,6 +9,7 @@ import online.store.mapper.TbSpecificationOptionMapper;
 import online.store.pojo.TbSpecification;
 import online.store.pojo.TbSpecificationExample;
 import online.store.pojo.TbSpecificationOption;
+import online.store.pojo.TbSpecificationOptionExample;
 import online.store.pojoGroup.Specification;
 import online.store.sellergoods.service.TbSpecificationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,19 @@ public class TbSpecificationServiceImpl implements TbSpecificationService {
      * @return 实例对象
      */
      @Override
-    public TbSpecification selectByPrimaryKey(Long id) {
-        return this.tbSpecificationMapper.selectByPrimaryKey(id);
+    public Specification selectByPrimaryKey(Long id) {
+         /*通过id查询到TbSpecification*/
+         TbSpecification tbSpecification = this.tbSpecificationMapper.selectByPrimaryKey(id);
+         Specification specification=new Specification();
+         specification.setTbSpecification(tbSpecification);
+
+         /*通过id查询TbSpecificationOption列表*/
+         TbSpecificationOptionExample tbSpecificationOptionExample = new TbSpecificationOptionExample();
+         TbSpecificationOptionExample.Criteria criteria = tbSpecificationOptionExample.createCriteria();
+         criteria.andSpecIdEqualTo(id);
+         List<TbSpecificationOption> tbSpecificationOptions = tbSpecificationOptionMapper.selectByExample(tbSpecificationOptionExample);
+         specification.setSpecificationOptionList(tbSpecificationOptions);
+         return specification;
     }
 
     /**
@@ -75,7 +87,6 @@ public class TbSpecificationServiceImpl implements TbSpecificationService {
      */
      @Override
     public TbSpecification insert(Specification specification) {
-         System.out.println(specification.getTbSpecification().getSpecName());
          TbSpecification tbSpecification=specification.getTbSpecification();
          this.tbSpecificationMapper.insert(tbSpecification);
          List<TbSpecificationOption> specificationOptionList = specification.getSpecificationOptionList();
@@ -89,15 +100,30 @@ public class TbSpecificationServiceImpl implements TbSpecificationService {
     /**
      * 修改数据
      *
-     * @param tbSpecification 实例对象
+     * @param specification 实例对象
      * @return 实例对象
      */
      @Override
-    public TbSpecification update(TbSpecification tbSpecification) {
-        this.tbSpecificationMapper.updateByPrimaryKey(tbSpecification);
-        return this.selectByPrimaryKey(tbSpecification.getId());
+    public TbSpecification update(Specification specification) {
+         /*将TbSpecification更新到数据库*/
+         TbSpecification tbSpecification=specification.getTbSpecification();
+         this.tbSpecificationMapper.updateByPrimaryKey(tbSpecification);
+
+         /*将原来TbSpecificationOption数据删除*/
+         TbSpecificationOptionExample tbSpecificationOptionExample = new TbSpecificationOptionExample();
+         TbSpecificationOptionExample.Criteria criteria = tbSpecificationOptionExample.createCriteria();
+         criteria.andSpecIdEqualTo(specification.getTbSpecification().getId());
+         tbSpecificationOptionMapper.deleteByExample(tbSpecificationOptionExample);
+
+         /*将新数据插入到表中*/
+         List<TbSpecificationOption> specificationOptionList = specification.getSpecificationOptionList();
+         for (TbSpecificationOption option:specificationOptionList){
+             option.setSpecId(tbSpecification.getId());
+             tbSpecificationOptionMapper.insert(option);
+         }
+         return tbSpecification;
     }
-    
+
     
     /**
      * 通过主键删除数据
@@ -139,10 +165,19 @@ public class TbSpecificationServiceImpl implements TbSpecificationService {
      */
      @Override
      public boolean deleteByPrimaryKeys(Long[]  ids){
+
+         /*删除规格表中数据*/
         TbSpecificationExample tbSpecificationExample = new TbSpecificationExample();
         TbSpecificationExample.Criteria criteria = tbSpecificationExample.createCriteria();
         criteria.andIdIn(Arrays.asList(ids));
-        return tbSpecificationMapper.deleteByExample(tbSpecificationExample)> 0;
+
+        /*删除规格表选项数据*/
+         TbSpecificationOptionExample tbSpecificationOptionExample=new TbSpecificationOptionExample();
+         TbSpecificationOptionExample.Criteria criteria1 = tbSpecificationOptionExample.createCriteria();
+         criteria1.andSpecIdIn(Arrays.asList(ids));
+
+         return (tbSpecificationMapper.deleteByExample(tbSpecificationExample)> 0&&
+                 tbSpecificationOptionMapper.deleteByExample(tbSpecificationOptionExample)>0);
         }
         
 }
