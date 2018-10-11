@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * (TbBrand)表控制层
@@ -121,5 +122,12 @@ public class TbBrandController {
     public PageModel<TbBrand> getTbBrandByPage(@RequestBody TbBrand tbBrand,int page,int size){
         return tbBrandService.queryAllByLimit(tbBrand,page,size);
     }
+
+    @RequestMapping("selectByExampleAsMap")
+    public List<Map> selectByExampleAsMap(){
+        System.out.println("进入controller");
+        return tbBrandService.selectByExampleAsMap();
+    }
+
 
 }

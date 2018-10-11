@@ -8,6 +8,7 @@
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+
     <context:property-placeholder location="classpath:config/application.properties" />
 
     <mvc:annotation-driven>
@@ -25,8 +26,9 @@
     </mvc:annotation-driven>
 
     <!-- 引用dubbo 服务 -->
-    <dubbo:application name="store-shop-web" />
-    <dubbo:registry address="zookeeper://192.168.25.231:2181"/>
-    <dubbo:annotation package="com.store.shop.controller" />
+    <dubbo:application name="store-manager-web" />
+    <dubbo:registry address="zookeeper://118.25.172.23:2181"/>
+    <dubbo:annotation package="online.store.shop.controller" />
+
 
 </beans>

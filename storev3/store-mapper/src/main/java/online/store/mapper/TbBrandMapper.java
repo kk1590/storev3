@@ -1,13 +1,13 @@
 package online.store.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import entity.Result;
 import online.store.pojo.*;
 import org.apache.ibatis.annotations.Param;
 
 public interface TbBrandMapper {
-
 
     List<TbBrand> findAll();
 
@@ -33,4 +33,5 @@ public interface TbBrandMapper {
 
     int updateByPrimaryKey(TbBrand record);
 
+    List<Map> selectByExampleAsMap();
 }

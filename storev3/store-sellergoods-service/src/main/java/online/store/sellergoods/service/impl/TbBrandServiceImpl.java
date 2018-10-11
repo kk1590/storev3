@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (TbBrand)表服务实现类
@@ -137,5 +138,10 @@ public class TbBrandServiceImpl implements TbBrandService {
         criteria.andIdIn(Arrays.asList(ids));
         return tbBrandMapper.deleteByExample(tbBrandExample)> 0;
         }
-        
+
+    @Override
+    public List<Map> selectByExampleAsMap() {
+        System.out.println("进入service");
+        return tbBrandMapper.selectByExampleAsMap();
+    }
 }

@@ -27,7 +27,7 @@
 
     <!-- 引用dubbo 服务 -->
     <dubbo:application name="store-manager-web" />
-    <dubbo:registry address="zookeeper://192.168.25.231:2181"/>
+    <dubbo:registry address="zookeeper://118.25.172.23:2181"/>
     <dubbo:annotation package="online.store.manager.controller" />
 
 </beans>

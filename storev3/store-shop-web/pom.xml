@@ -81,6 +81,27 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>online.zhangke.store</groupId>
+            <artifactId>store-sellergoods-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--spring权限认证的类-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>online.zhangke.store</groupId>
+            <artifactId>store-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

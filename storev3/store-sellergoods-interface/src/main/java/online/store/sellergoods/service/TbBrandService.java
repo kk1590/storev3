@@ -3,6 +3,7 @@ package online.store.sellergoods.service;
 import entity.PageModel;
 import online.store.pojo.TbBrand;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (TbBrand)表服务接口
@@ -77,4 +78,6 @@ public interface TbBrandService {
      * @return 是否成功
      */
      boolean deleteByPrimaryKeys(Long[] ids);
+
+    List<Map> selectByExampleAsMap();
 }

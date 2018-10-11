@@ -66,4 +66,16 @@ app.controller('tbSellerController',function($scope,$controller,tbSellerService)
             }
         );
     }
+
+    $scope.updateStatus=function (sellerId, status) {
+        alert("成功进入controller");
+        tbSellerService.updateStatus(sellerId,status).success(
+            function (response) {
+                if(response.success){
+                    $scope.reloadList();
+                }else{
+                    alert(response.message);
+                }
+        })
+    }
 });

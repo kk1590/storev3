@@ -1,6 +1,7 @@
 package online.store.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import online.store.pojo.TbTypeTemplate;
 import online.store.pojo.TbTypeTemplateExample;
@@ -28,4 +29,5 @@ public interface TbTypeTemplateMapper {
     int updateByPrimaryKeySelective(TbTypeTemplate record);
 
     int updateByPrimaryKey(TbTypeTemplate record);
+
 }

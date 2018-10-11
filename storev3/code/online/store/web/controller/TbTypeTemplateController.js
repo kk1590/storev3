@@ -1,5 +1,5 @@
 /*TbTypeTemplateController 控制层代码*/
-app.controller('tbTypeTemplateController',function($scope,$controller,tbTypeTemplateService){
+app.controller('tbTypeTemplateController',function($scope,$controller,tbTypeTemplateService,tbBrandService){
     /*引入baseController*/
     $controller('baseController',{$scope:$scope});
 

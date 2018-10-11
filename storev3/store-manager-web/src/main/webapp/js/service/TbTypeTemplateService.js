@@ -6,7 +6,7 @@ app.service("tbTypeTemplateService",function ($http) {
 
 
     this.findPage=function (page,size) {
-        return $http.get('../tbTypeTemplate/findPage.do?offset='page+ +'&limit='+size);
+        return $http.get('../tbTypeTemplate/findPage.do?offset='+page+'&limit='+size);
     };
 
     this.add=function (entity) {
@@ -29,4 +29,5 @@ app.service("tbTypeTemplateService",function ($http) {
     this.search=function (page,size,searchEntity) {
         return $http.post('../tbTypeTemplate/search.do?offset='+page +'&limit='+size,searchEntity);
     };
+
 });

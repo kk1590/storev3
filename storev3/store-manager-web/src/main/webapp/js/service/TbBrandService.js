@@ -6,7 +6,7 @@ app.service("tbBrandService",function ($http) {
 
 
     this.findPage=function (page,size) {
-        return $http.get('../tbBrand/findPage.do?page='+page +'&size='+size);
+        return $http.get('../tbBrand/findPage.do?page='+page+'&size='+size);
     };
 
     this.add=function (entity) {
@@ -29,4 +29,10 @@ app.service("tbBrandService",function ($http) {
     this.search=function (page,size,searchEntity) {
         return $http.post('../tbBrand/search.do?page='+page +'&size='+size,searchEntity);
     };
+
+
+    this.selectByExampleAsMap=function () {
+        alert("进入tbBrandservice");
+        return $http.get('../tbBrand/selectByExampleAsMap.do');
+    }
 });

@@ -1,5 +1,5 @@
 /*TbTypeTemplateController 控制层代码*/
-app.controller('tbTypeTemplateController',function($scope,$controller,tbTypeTemplateService){
+app.controller('tbTypeTemplateController',function($scope,$controller,tbTypeTemplateService,tbBrandService){
     /*引入baseController*/
     $controller('baseController',{$scope:$scope});
 
@@ -66,4 +66,14 @@ app.controller('tbTypeTemplateController',function($scope,$controller,tbTypeTemp
             }
         );
     }
+
+    $scope.brandList={data:[]};
+
+    $scope.selectByExampleAsMap=function () {
+        alert("进入controller");
+        tbBrandService.selectByExampleAsMap().success(function (response) {
+            $scope.brandList= {data:response};
+        })
+    }
+
 });

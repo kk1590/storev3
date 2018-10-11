@@ -11,6 +11,7 @@ import online.store.sellergoods.service.TbSellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -69,8 +70,10 @@ public class TbSellerServiceImpl implements TbSellerService {
      */
      @Override
     public TbSeller insert(TbSeller tbSeller) {
-        this.tbSellerMapper.insert(tbSeller);
-        return tbSeller;
+         tbSeller.setStatus("0");
+         tbSeller.setCreateTime(new Date());
+         this.tbSellerMapper.insert(tbSeller);
+         return tbSeller;
     }
 
     /**
@@ -215,6 +218,19 @@ public class TbSellerServiceImpl implements TbSellerService {
         TbSellerExample.Criteria criteria = tbSellerExample.createCriteria();
         criteria.andSellerIdIn(Arrays.asList(sellerIds));
         return tbSellerMapper.deleteByExample(tbSellerExample)> 0;
-        }
-        
+     }
+
+    /**
+     * 更新商家审核状态
+     * @param sellerId
+     * @param status
+     */
+    @Override
+     public void updateStatus(String sellerId,String status){
+        System.out.println("成功进入service");
+         TbSeller tbSeller = tbSellerMapper.selectByPrimaryKey(sellerId);
+         tbSeller.setStatus(status);
+         tbSellerMapper.updateByPrimaryKey(tbSeller);
+     }
+
 }

@@ -4,6 +4,7 @@ import entity.PageModel;
 import online.store.pojo.TbTypeTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -79,4 +80,5 @@ public interface TbTypeTemplateService {
      * @return 是否成功
      */
      boolean deleteByPrimaryKeys(Long[] ids);
+
 }

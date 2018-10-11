@@ -6,7 +6,7 @@ app.service("tbSellerService",function ($http) {
 
 
     this.findPage=function (page,size) {
-        return $http.get('../tbSeller/findPage.do?offset='page+ +'&limit='+size);
+        return $http.get('../tbSeller/findPage.do?offset='+page+'&limit='+size);
     };
 
     this.add=function (entity) {
@@ -29,4 +29,17 @@ app.service("tbSellerService",function ($http) {
     this.search=function (page,size,searchEntity) {
         return $http.post('../tbSeller/search.do?offset='+page +'&limit='+size,searchEntity);
     };
+
+
+    /**
+     * 更新商家状态
+     * @param sellerId
+     * @param status
+     * @returns {*}
+     */
+    this.updateStatus=function(sellerId,status){
+
+        alert("成功进入service");
+        return $http.get('../tbSeller/updateStatus.do?sellerId='+sellerId+'&status='+status);
+    }
 });

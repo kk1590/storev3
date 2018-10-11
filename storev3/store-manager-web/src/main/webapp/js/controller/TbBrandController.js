@@ -66,4 +66,5 @@ app.controller('tbBrandController',function($scope,$controller,tbBrandService){
             }
         );
     }
+
 });

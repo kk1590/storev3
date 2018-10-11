@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (TbTypeTemplate)表服务实现类
@@ -142,6 +143,7 @@ public class TbTypeTemplateServiceImpl implements TbTypeTemplateService {
         TbTypeTemplateExample.Criteria criteria = tbTypeTemplateExample.createCriteria();
         criteria.andIdIn(Arrays.asList(ids));
         return tbTypeTemplateMapper.deleteByExample(tbTypeTemplateExample)> 0;
-        }
+     }
+
         
 }

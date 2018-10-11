@@ -6,7 +6,7 @@ app.service("tbItemCatService",function ($http) {
 
 
     this.findPage=function (page,size) {
-        return $http.get('../tbItemCat/findPage.do?offset='page+ +'&limit='+size);
+        return $http.get('../tbItemCat/findPage.do?offset='+page+'&limit='+size);
     };
 
     this.add=function (entity) {

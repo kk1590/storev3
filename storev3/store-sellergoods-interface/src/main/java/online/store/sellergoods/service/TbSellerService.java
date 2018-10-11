@@ -79,4 +79,11 @@ public interface TbSellerService {
      * @return 是否成功
      */
      boolean deleteByPrimaryKeys(String[] sellerIds);
+
+    /**
+     * 更新商家状态
+     * @param sellerId 商家id
+     * @param status 要更新的状态
+     */
+    public void updateStatus(String sellerId,String status);
 }
