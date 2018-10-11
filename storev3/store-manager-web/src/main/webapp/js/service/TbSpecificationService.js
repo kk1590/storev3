@@ -29,4 +29,10 @@ app.service("tbSpecificationService",function ($http) {
     this.search=function (page,size,searchEntity) {
         return $http.post('../tbSpecification/search.do?offset='+page +'&limit='+size,searchEntity);
     };
+
+
+    this.getSpecificationList=function () {
+        alert("进入service");
+        return $http.post('../tbSpecification/getSpecificationList.do');
+    }
 });

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * (TbSpecification)表控制层
@@ -122,6 +123,17 @@ public class TbSpecificationController {
     @RequestMapping("search")
     public PageModel<TbSpecification> getTbSpecificationByPage(@RequestBody TbSpecification tbSpecification,int offset, int limit){
         return tbSpecificationService.queryAllByLimit(tbSpecification,offset,limit);
+    }
+
+
+    /**
+     * 查询所有规格列表,返回map集合
+     * @return
+     */
+    @RequestMapping("getSpecificationList")
+
+    public List<Map> getSpecificationList() {
+        return tbSpecificationService.getSpecificationList();
     }
 
 }

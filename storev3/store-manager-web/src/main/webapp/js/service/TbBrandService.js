@@ -32,7 +32,6 @@ app.service("tbBrandService",function ($http) {
 
 
     this.selectByExampleAsMap=function () {
-        alert("进入tbBrandservice");
         return $http.get('../tbBrand/selectByExampleAsMap.do');
     }
 });

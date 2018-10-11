@@ -5,6 +5,7 @@ import online.store.pojo.TbSpecification;
 import online.store.pojoGroup.Specification;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -80,4 +81,6 @@ public interface TbSpecificationService {
      * @return 是否成功
      */
      boolean deleteByPrimaryKeys(Long[] ids);
+
+    List<Map> getSpecificationList();
 }

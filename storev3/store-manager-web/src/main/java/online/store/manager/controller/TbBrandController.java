@@ -125,7 +125,6 @@ public class TbBrandController {
 
     @RequestMapping("selectByExampleAsMap")
     public List<Map> selectByExampleAsMap(){
-        System.out.println("进入controller");
         return tbBrandService.selectByExampleAsMap();
     }
 

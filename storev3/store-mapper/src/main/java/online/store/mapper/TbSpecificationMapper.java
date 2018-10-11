@@ -1,6 +1,7 @@
 package online.store.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import online.store.pojo.TbSpecification;
 import online.store.pojo.TbSpecificationExample;
@@ -30,4 +31,5 @@ public interface TbSpecificationMapper {
 
     int updateByPrimaryKey(TbSpecification record);
 
+    List<Map> getSpecificationList();
 }

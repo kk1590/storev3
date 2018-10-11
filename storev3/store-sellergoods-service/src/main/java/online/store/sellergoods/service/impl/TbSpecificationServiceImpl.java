@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (TbSpecification)表服务实现类
@@ -179,5 +180,10 @@ public class TbSpecificationServiceImpl implements TbSpecificationService {
          return (tbSpecificationMapper.deleteByExample(tbSpecificationExample)> 0&&
                  tbSpecificationOptionMapper.deleteByExample(tbSpecificationOptionExample)>0);
         }
-        
+
+    @Override
+    public List<Map> getSpecificationList() {
+        return tbSpecificationMapper.getSpecificationList();
+    }
+
 }

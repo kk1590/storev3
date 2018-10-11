@@ -141,7 +141,6 @@ public class TbBrandServiceImpl implements TbBrandService {
 
     @Override
     public List<Map> selectByExampleAsMap() {
-        System.out.println("进入service");
         return tbBrandMapper.selectByExampleAsMap();
     }
 }
