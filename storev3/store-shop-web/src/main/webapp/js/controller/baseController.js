@@ -25,4 +25,13 @@ app.controller('baseController', function ($scope){
             $scope.selectIds.splice(index, 1);
         }
     };
+
+    $scope.searchObjdectByKey=function(list,key,keyValue){
+        for (var i=0;i<list.length;i++){
+            if(list[i][key]==keyValue){
+                return list[i];
+            }
+        }
+        return null;
+    }
 })

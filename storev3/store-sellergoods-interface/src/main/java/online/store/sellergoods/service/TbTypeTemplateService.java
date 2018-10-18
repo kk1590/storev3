@@ -81,4 +81,5 @@ public interface TbTypeTemplateService {
      */
      boolean deleteByPrimaryKeys(Long[] ids);
 
+    List<Map> getSpecIdsMapList(Long id);
 }

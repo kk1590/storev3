@@ -4,9 +4,8 @@ app.service("tbGoodsService",function ($http) {
       return $http.get('../tbGoods/findAll.do');
     };
 
-
     this.findPage=function (page,size) {
-        return $http.get('../tbGoods/findPage.do?offset='page+ +'&limit='+size);
+        return $http.get('../tbGoods/findPage.do?offset='+page +'&limit='+size);
     };
 
     this.add=function (entity) {
@@ -25,8 +24,12 @@ app.service("tbGoodsService",function ($http) {
         return $http.get('../tbGoods/delete.do?ids='+selectIds);
     };
 
-
     this.search=function (page,size,searchEntity) {
         return $http.post('../tbGoods/search.do?offset='+page +'&limit='+size,searchEntity);
     };
+
+
+    this.getTbGoodsByPage=function (page,size,searchEntity) {
+        return $http.post('../tbSeller/getTbGoodsByPage.do?offset='+page +'&limit='+size,searchEntity)
+    }
 });

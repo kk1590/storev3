@@ -3,6 +3,7 @@ package online.store.manager.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import entity.PageModel;
 import entity.Result;
+import online.store.pojo.Goods;
 import online.store.pojo.TbGoods;
 import online.store.sellergoods.service.TbGoodsService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +34,7 @@ public class TbGoodsController {
      * @return 单条数据
      */
     @RequestMapping("selectOne")
-    public TbGoods selectOne(Long id) {
+    public Goods selectOne(Long id) {
         return this.tbGoodsService.selectByPrimaryKey(id);
     }
     
@@ -60,40 +61,7 @@ public class TbGoodsController {
     public PageModel<TbGoods> getTbGoodsByPage(int offset, int limit){
         return tbGoodsService.queryAllByLimit(offset,limit);
     }
-    
-    /**
-     * 将1条pojod对象添加到数据库
-     *
-     * @param tbGoods 实例对象
-     * @return Result对象
-     */
-    
-    @RequestMapping("add")
-    public Result add(@RequestBody TbGoods tbGoods){
-        try {
-            tbGoodsService.insert(tbGoods);
-            return new Result(true,"增加成功");
-        }catch (Exception e){
-            e.printStackTrace();
-            return new Result(false,"增加失败");
-        }
-    }
-    
-     /**
-     * 通过pojo修改数据
-     *
-     * @param tbGoods 实例对象
-     * @return result结果对象
-     */
-    @RequestMapping("update")
-    public Result update(@RequestBody TbGoods tbGoods){
-        try {
-        tbGoodsService.update(tbGoods);
-        return new Result(true,"更新成功");
-        }catch (Exception e){
-            return new Result(false,"更新失败");
-        }
-    }
+
 
     /**
      * 通过主键列表删除数据

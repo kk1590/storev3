@@ -42,6 +42,11 @@ app.controller('tbTypeTemplateController',function($scope,$controller,tbTypeTemp
     $scope.findOne=function(id){
         tbTypeTemplateService.findOne(id).success(function (response) {
             $scope.entity=response;
+
+            $scope.entity.customAttributeItems=JSON.parse($scope.entity.customAttributeItems);
+            $scope.entity.specIds=JSON.parse($scope.entity.specIds);
+            $scope.entity.brandIds=JSON.parse($scope.entity.brandIds);
+
         });
     };
 
@@ -83,10 +88,13 @@ app.controller('tbTypeTemplateController',function($scope,$controller,tbTypeTemp
         })
     }
 
-    $scope.entity={customAttributeItemsList:[]};
 
     $scope.addTableRow=function () {
-        $scope.entity.customAttributeItemsList.push({});
+        $scope.entity.customAttributeItems.push({});
+    }
+
+    $scope.deleteTableRow=function (row) {
+        var index=$scope.entity.customAttributeItems.splice(row,1);
     }
 
 });

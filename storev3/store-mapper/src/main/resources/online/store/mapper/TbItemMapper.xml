@@ -120,6 +120,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="online.store.pojo.TbItem">
+    <selectKey keyProperty="id" order="AFTER" resultType="long">
+      SELECT LAST_INSERT_ID() AS id
+    </selectKey>
     insert into tb_item (id, title, sell_point, 
       price, stock_count, num, 
       barcode, image, categoryId, 

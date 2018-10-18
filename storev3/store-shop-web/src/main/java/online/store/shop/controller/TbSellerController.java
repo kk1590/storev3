@@ -3,8 +3,13 @@ package online.store.shop.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import entity.PageModel;
 import entity.Result;
+import online.store.pojo.TbGoods;
 import online.store.pojo.TbSeller;
+import online.store.sellergoods.service.TbGoodsService;
 import online.store.sellergoods.service.TbSellerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -125,5 +130,6 @@ public class TbSellerController {
     public PageModel<TbSeller> getTbSellerByPage(@RequestBody TbSeller tbSeller,int offset, int limit){
         return tbSellerService.queryAllByLimit(tbSeller,offset,limit);
     }
+
 
 }

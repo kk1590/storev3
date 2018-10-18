@@ -29,4 +29,10 @@ app.service("tbItemCatService",function ($http) {
     this.search=function (page,size,searchEntity) {
         return $http.post('../tbItemCat/search.do?offset='+page +'&limit='+size,searchEntity);
     };
+
+
+    this.selectByPrimaryParentId=function (parentId) {
+        return $http.get('../tbItemCat/selectByPrimaryParentId.do?parentId='+parentId);
+
+    }
 });

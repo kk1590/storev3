@@ -29,4 +29,7 @@ app.service("tbSellerService",function ($http) {
     this.search=function (page,size,searchEntity) {
         return $http.post('../tbSeller/search.do?offset='+page +'&limit='+size,searchEntity);
     };
+
+
+
 });

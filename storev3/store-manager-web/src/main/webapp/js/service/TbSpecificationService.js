@@ -32,7 +32,6 @@ app.service("tbSpecificationService",function ($http) {
 
 
     this.getSpecificationList=function () {
-        alert("进入service");
         return $http.post('../tbSpecification/getSpecificationList.do');
     }
 });

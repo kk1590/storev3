@@ -79,4 +79,6 @@ public interface TbItemCatService {
      * @return 是否成功
      */
      boolean deleteByPrimaryKeys(Long[] ids);
+
+     List<TbItemCat> selectByPrimaryParentId(Long parentId);
 }

@@ -16,7 +16,6 @@
             <param-name>forceEncoding</param-name>
             <param-value>true</param-value>
         </init-param>
-
     </filter>
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>

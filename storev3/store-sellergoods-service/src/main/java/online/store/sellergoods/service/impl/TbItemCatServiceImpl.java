@@ -133,5 +133,13 @@ public class TbItemCatServiceImpl implements TbItemCatService {
         criteria.andIdIn(Arrays.asList(ids));
         return tbItemCatMapper.deleteByExample(tbItemCatExample)> 0;
         }
-        
+
+    @Override
+    public List<TbItemCat> selectByPrimaryParentId(Long parentId) {
+        TbItemCatExample example=new TbItemCatExample();
+        TbItemCatExample.Criteria criteria = example.createCriteria();
+        criteria.andParentIdEqualTo(parentId);
+        return tbItemCatMapper.selectByExample(example);
+    }
+
 }

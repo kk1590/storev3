@@ -122,4 +122,9 @@ public class TbItemCatController {
         return tbItemCatService.queryAllByLimit(tbItemCat,offset,limit);
     }
 
+    @RequestMapping("selectByPrimaryParentId")
+    public List<TbItemCat> selectByPrimaryParentId(Long parentId){
+        return tbItemCatService.selectByPrimaryParentId(parentId);
+    }
+
 }

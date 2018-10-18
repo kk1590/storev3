@@ -1,6 +1,7 @@
 package online.store.sellergoods.service;
 
 import entity.PageModel;
+import online.store.pojo.Goods;
 import online.store.pojo.TbGoods;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public interface TbGoodsService {
      * @param id 主键
      * @return 实例对象
      */
-    TbGoods selectByPrimaryKey(Long id);
+    Goods selectByPrimaryKey(Long id);
 
     /**
      * 查询多条数据
@@ -30,7 +31,6 @@ public interface TbGoodsService {
      * @return 对象列表
      */
     PageModel<TbGoods> queryAllByLimit(int offset, int limit);
-
 
      /**
      * 查询所有数据
@@ -43,18 +43,18 @@ public interface TbGoodsService {
     /**
      * 新增数据
      *
-     * @param tbGoods 实例对象
-     * @return 实例对象
+     * @param goods 实例对象
+     * @return 影响行数
      */
-    TbGoods insert(TbGoods tbGoods);
+    void insert(Goods goods);
 
     /**
      * 修改数据
      *
-     * @param tbGoods 实例对象
+     * @param goods 实例对象
      * @return 实例对象
      */
-    TbGoods update(TbGoods tbGoods);
+    boolean update(Goods goods);
 
     /**
      * 通过主键删除数据
