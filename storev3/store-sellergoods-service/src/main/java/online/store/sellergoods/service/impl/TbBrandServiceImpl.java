@@ -11,6 +11,7 @@ import online.store.pojo.TbBrandExample;
 import online.store.sellergoods.service.TbBrandService;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +24,7 @@ import java.util.Map;
  * @since 2018-10-09 10:27:01
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class TbBrandServiceImpl implements TbBrandService {
 
     @Autowired

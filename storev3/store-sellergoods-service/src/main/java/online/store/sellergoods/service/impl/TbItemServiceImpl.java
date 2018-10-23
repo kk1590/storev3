@@ -9,6 +9,7 @@ import online.store.pojo.TbItem;
 import online.store.pojo.TbItemExample;
 import online.store.sellergoods.service.TbItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
  * @since 2018-10-09 14:22:54
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class TbItemServiceImpl implements TbItemService {
     @Autowired
     private TbItemMapper tbItemMapper;

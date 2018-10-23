@@ -9,6 +9,7 @@ import online.store.mapper.*;
 import online.store.pojo.*;
 import online.store.sellergoods.service.TbGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
@@ -23,6 +24,7 @@ import java.util.Map;
  * @since 2018-10-09 14:22:54
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class TbGoodsServiceImpl implements TbGoodsService {
     @Autowired
     private TbGoodsMapper tbGoodsMapper;

@@ -15,6 +15,8 @@
         <module>store-sellergoods-interface</module>
         <module>store-sellergoods-service</module>
         <module>store-shop-web</module>
+        <module>store-content-interface</module>
+        <module>store-content-service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -277,8 +279,6 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
-
 </project>
